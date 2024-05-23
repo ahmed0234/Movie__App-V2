@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className={styles.nav}>
-        <p>Next.js</p>
+        <Link href={`/`} >Next.js</Link>
         <ul className={styles.links}>
           <Link href="/">
             <li>Home 🏠 </li>
