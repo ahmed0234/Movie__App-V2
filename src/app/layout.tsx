@@ -1,20 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Ahmed Next.js Mastery",
@@ -28,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className={GeistSans.className}>
         <body>{children}</body>
       </html>
     </ClerkProvider>

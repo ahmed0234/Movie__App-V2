@@ -2,15 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  *,*::after,*::before{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @apply bg-zinc-900 text-white;
+  }
+}
+
+@layer components {
+  .sectionContainer {
+    @apply w-11/12 mx-auto mt-6;
   }
 
-  body{
-    @apply bg-zinc-900 text-white
-  }
+  /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #9E3333 #686259;
+}*/
+
+/* Chrome, Edge and Safari */
+.styleScrollbar::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.styleScrollbar::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: #686259;
+}
+
+.styleScrollbar::-webkit-scrollbar-track:hover {
+  background-color: #B8C0C2;
+}
+
+.styleScrollbar::-webkit-scrollbar-track:active {
+  background-color: #B8C0C2;
+}
+
+.styleScrollbar::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #9E3333;
+}
+
+.styleScrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #62A34B;
+}
+
+.styleScrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #62A34B;
+}
 
 }
