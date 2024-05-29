@@ -1,4 +1,4 @@
-import MovieCard from "@/components/Server/movieListingCard";
+import MovieCard from "@/Components/Server/movieListingCard";
 
 export const dynamic = "auto";
 

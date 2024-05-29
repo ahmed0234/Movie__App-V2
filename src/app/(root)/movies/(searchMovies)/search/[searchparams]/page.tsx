@@ -1,4 +1,4 @@
-import MovieCard from "@/components/Server/movieListingCard";
+import MovieCard from "@/Components/Server/movieListingCard";
 
 async function page({ params }: any) {
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navlink from "@/components/Client/Navlink";
-import NavbarSearch from "@/components/Server/Navbarsearch";
+import Navlink from "@/Components/Client/Navlink";
+import NavbarSearch from "@/Components/Server/Navbarsearch";
 import { SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 function Navbar() {

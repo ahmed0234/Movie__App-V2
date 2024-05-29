@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CastCarousel from "@/components/Client/CastCarousel";
+import CastCarousel from "@/Components/Client/CastCarousel";
 
 interface CastMember {
   gender: number;

@@ -1,6 +1,6 @@
-import MovieCard from "@/components/Server/movieListingCard";
+import MovieCard from "@/Components/Server/movieListingCard";
 import { moviesGenreList } from "@/utils/data";
-import Moviepagination from "@/components/Server/movieGenrePagination";
+import Moviepagination from "@/Components/Server/movieGenrePagination";
 
 async function fetchMovesData(pageCategory, pageNumber) {
   const movieGenre = moviesGenreList.find(

@@ -1,4 +1,4 @@
-import MoviesCategoriesList from "@/components/Server/MoviesCategoriesList";
+import MoviesCategoriesList from "@/Components/Server/MoviesCategoriesList";
 
 function Layout({ children }) {
   return (

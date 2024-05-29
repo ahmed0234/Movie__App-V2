@@ -1,4 +1,4 @@
-import HeroSection from "@/components/Server/Herosection";
+import HeroSection from "@/Components/Server/Herosection";
 
 export const revalidate = 0; // revalidate at most every hour
 

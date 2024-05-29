@@ -1,4 +1,4 @@
-import Movieinformation from "@/components/Server/MovieInformation";
+import Movieinformation from "@/Components/Server/MovieInformation";
 
 interface genreobject {
   id: number;

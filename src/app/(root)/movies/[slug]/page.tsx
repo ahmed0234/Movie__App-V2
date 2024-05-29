@@ -1,6 +1,6 @@
 import { moviesGenreList } from "@/utils/data";
-import MovieCard from "@/components/Server/movieListingCard";
-import Moviepagination from "@/components/Server/movieGenrePagination";
+import MovieCard from "@/Components/Server/movieListingCard";
+import Moviepagination from "@/Components/Server/movieGenrePagination";
 
 async function findMovieGenre(params: any) {
   const movieGenre = moviesGenreList.find((genre) => genre.name === params);
