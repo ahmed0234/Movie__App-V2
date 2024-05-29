@@ -42,14 +42,16 @@ interface moviedata {
   vote_average: number;
   vote_count: number;
   credits: Credits;
+  videos: any;
 }
 
 async function fetchMovieDatabyID(params: any) {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${params}?api_key=${process.env.TMDB_KEY}&append_to_response=credits`,
+    `https://api.themoviedb.org/3/movie/${params}?api_key=${process.env.TMDB_KEY}&append_to_response=credits,videos`,
     { cache: "no-store" }
   );
   const data = await res.json();
+
   return data;
 }
 
@@ -67,6 +69,8 @@ async function Page({ params }: any) {
         movieReleaseDate={movieData.release_date}
         movieOriginalLanguage={movieData.original_language}
         moviebgimage={movieData.backdrop_path}
+        CastInformation={movieData.credits.cast}
+        movieTrailer={movieData.videos}
       />
     </>
   );

@@ -1,4 +1,17 @@
 import Image from "next/image";
+import CastCarousel from "@/components/Client/CastCarousel";
+
+interface CastMember {
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  profile_path: string;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+}
 
 type props = {
   moviePoster: string;
@@ -10,6 +23,8 @@ type props = {
   movieDirector?: string;
   movieOriginalLanguage: string;
   moviebgimage: string;
+  CastInformation: CastMember[];
+  movieTrailer: any;
 };
 
 export default function MovieInformation({
@@ -22,10 +37,13 @@ export default function MovieInformation({
   movieDirector,
   movieOriginalLanguage,
   moviebgimage,
+  CastInformation,
+  movieTrailer,
 }: props) {
   const movieimgsrc = `https://image.tmdb.org/t/p/original${moviePoster}`;
   const moviegenre = movieGenre.map((genre) => genre.name).join(", ");
   const moviebgcover = `https://image.tmdb.org/t/p/original${moviebgimage}`;
+
   function truncateString(input: string) {
     const maxLength = 150;
     if (input.length <= maxLength) {
@@ -36,9 +54,9 @@ export default function MovieInformation({
 
   return (
     <>
-      <div className="rounded-xl bg-neutral-950 text-gray-50">
+      <div className="rounded-xl bg-neutral-950 pb-6 text-gray-50">
         <div
-          className={` container mx-auto px-4 py-12 md:px-6 md:py-16 lg:px-2 lg:py-20`}
+          className={`mx-auto rounded-xl px-2 py-12 md:px-6 md:py-16 lg:px-2 lg:py-20`}
           style={{
             background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url(${moviebgcover})`,
             backgroundPosition: "center",
@@ -108,9 +126,32 @@ export default function MovieInformation({
             </div>
           </div>
         </div>
-        <section className="Cast__Area border">
-          <h1>Casts</h1>
-        </section>
+        {movieTrailer.results.length > 0 ? (
+          <div className="MovieTrailer mt-8 flex w-full flex-col gap-4 px-4">
+            <h1 className="text-3xl">Movie Trailer</h1>
+            <iframe
+              allowFullScreen
+              className="aspect-video size-full max-sm:h-80"
+              src={`https://www.youtube.com/embed/${movieTrailer.results[0].key}`}
+              title={movieName}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
+          </div>
+        ) : (
+          <div className="text-center">
+            <h1>No Trailer Found!</h1>
+          </div>
+        )}
+        {CastInformation.length > 0 ? (
+          <div className="Cast__information mt-8">
+            <h1 className="text-3xl">Movie Cast</h1>
+            <br />
+            <CastCarousel castData={CastInformation} />
+          </div>
+        ) : (
+          <h1>No Cast Informtaion Found!</h1>
+        )}
       </div>
     </>
   );

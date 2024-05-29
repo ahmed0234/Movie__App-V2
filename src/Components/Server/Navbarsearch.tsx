@@ -1,13 +1,31 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
+import { useState } from "react";
+
 export default function NavbarSearch() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+  const handleNavbarSearchClick = (e: any) => {
+    e.preventDefault();
+    router.push(`/movies/search/${searchTerm}`);
+  };
+
   return (
     <div className="flex items-center rounded-lg bg-[#2c2f33] p-2">
-      <input
-        className=" w-40 border-none bg-transparent px-4 text-white outline-none duration-300 ease-in-out placeholder:text-gray-400 focus:w-64 "
-        placeholder="Search movies..."
-      />
-      <button className="text-white">
-        <MicroscopeIcon className="size-4" />
-      </button>
+      <form onSubmit={handleNavbarSearchClick}>
+        <input
+          className=" w-40 border-none bg-transparent px-4 text-white outline-none duration-300 ease-in-out placeholder:text-gray-400 focus:w-64 "
+          placeholder="Search movies..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        <button className="text-white" type="submit">
+          <MicroscopeIcon className="size-4" />
+        </button>
+      </form>
     </div>
   );
 }
