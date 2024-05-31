@@ -1,11 +1,10 @@
 import MovieCard from "@/Components/Server/movieListingCard";
 
-export const dynamic = "auto";
+export const revalidate = 7200; // revalidate at most every hour
 
 async function fetchTrendingMovies() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDB_KEY}`,
-    { next: { revalidate: 21600 }, cache: "force-cache" }
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDB_KEY}`
   );
   const data = await res.json();
   return data;

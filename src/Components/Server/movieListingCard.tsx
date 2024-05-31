@@ -28,9 +28,9 @@ const MovieCard = ({
             src={movieImageurl + movieImage} // Replace with the actual image source
             alt="Movie Poster"
             layout="fill"
-            objectFit="cover"
-            style={{ backgroundPosition: "center", backgroundSize: "cover" }}
-            className="bg-center"
+            sizes="50vw"
+            quality={50}
+            className="w-full object-cover"
           />
         </div>
         <div className="px-6 py-4">

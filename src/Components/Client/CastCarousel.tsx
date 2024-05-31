@@ -35,11 +35,12 @@ export default function CastCarousel({ castData }: { castData: CastMember[] }) {
                   src={`${movieImageurl}${actor.profile_path}`}
                   alt={`${actor.name}`}
                   layout="fill"
+                  sizes="50vw"
                   objectFit="cover"
-                  className="rounded-md bg-center"
+                  className="rounded-md"
                   style={{
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
+                    objectFit: "cover",
+                    objectPosition: "center",
                   }}
                 />
               </div>
